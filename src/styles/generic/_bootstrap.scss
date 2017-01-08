@@ -4,7 +4,7 @@ $link-color:                $color20 !default;
 $link-hover-color:          $color20 !default;
 $input-color-placeholder:   $color20 !default;
 $font-size-base:            16px !default;
-//$font-family-base:          $lato !default;
+//$font-family-base:        $lato !default;
 
 // Path framework
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";
@@ -24,7 +24,7 @@ $font-size-base:            16px !default;
 //@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/button-groups";
 //@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/input-groups";
 //@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/navs";
-//@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/navbar";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/navbar";
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/breadcrumbs";
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/pagination";
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/pager";
