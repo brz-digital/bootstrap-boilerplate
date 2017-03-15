@@ -8,7 +8,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/brz-digital/bootstrap-boilerplate"
+        "url": "git+https://github.com/brz-digital/brz-boilerplate"
     },
     "keywords": [
         "html5",
@@ -26,9 +26,9 @@
     "author": "João Paulo Barbosa Neto <jpaulobneto@gmail.com>, Hugo Fabrício <me@hugofabricio.com>",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/brz-digital/bootstrap-boilerplate/issues"
+        "url": "https://github.com/brz-digital/brz-boilerplate/issues"
     },
-    "homepage": "https://github.com/brz-digital/bootstrap-boilerplate#readme",
+    "homepage": "https://github.com/brz-digital/brz-boilerplate#readme",
     "dependencies": {
         "express": "^4.13.4"
     },
