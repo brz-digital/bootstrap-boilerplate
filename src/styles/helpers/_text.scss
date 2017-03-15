@@ -1,12 +1,12 @@
-// Text
-.text {
-  &.-text-bold {
-    font-weight: 700;
-  }
-  &.-text-black {
-    font-weight: 900;
-  }
-  &.-text-italic {
-    font-style: italic;
-  }
+// Font
+.font {
+    &.-font-bold {
+        font-weight: 700;
+    }
+    &.-font-black {
+        font-weight: 900;
+    }
+    &.-font-italic {
+        font-style: italic;
+    }
 }

@@ -9,5 +9,6 @@ const dist = 'dist';
 const src = 'src';
 const tmp = '.tmp';
 const vendor = 'bower_components';
+const libs = 'libs';
 
-export { $, reload, dist, src, tmp, vendor };
+export { $, reload, dist, src, tmp, vendor, libs };

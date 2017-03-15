@@ -1,0 +1,15 @@
+// PX to REM
+
+@function rem($values) {
+    $list: ();
+
+    @each $value in $values {
+        @if $value == 'auto' {
+            $list: append($list, $value);
+        } @else {
+            $list: append($list, ($value/$rem-base) + rem);
+        }
+    }
+
+    @return $list();
+}
