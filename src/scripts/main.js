@@ -1,7 +1,6 @@
 import Common from './modules/common';
-import Carousel from './modules/carousel';
 
-const availableModules = { Common, Carousel };
+const availableModules = { Common };
 
 window.modules = {};
 
