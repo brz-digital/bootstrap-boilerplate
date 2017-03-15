@@ -1,0 +1,9 @@
+{
+    "directory": "/",
+    "cwd": "./PATH",
+    "targets": {
+        "devDependencies": {
+            "directory": "/bower_components"
+        }
+    }
+}
