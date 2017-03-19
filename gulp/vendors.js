@@ -4,11 +4,17 @@ import gulp from 'gulp';
 gulp.task('vendors', () => {
     return gulp.src([
         `${cons.vendor}/jquery/dist/jquery.js`,
-        `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap.js`,
+
+        `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/transition.js`,
+        `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/alert.js`,
+        `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/button.js`,
+        `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/modal.js`,
+        `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/affix.js`,
+        `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js`,
+
         `${cons.vendor}/jquery-mask-plugin/dist/jquery.mask.js`,
-        `${cons.vendor}/retina.js/dist/retina.js`,
         `${cons.vendor}/magnific-popup/dist/jquery.magnific-popup.js`,
-        `${cons.vendor}/Swiper/dist/js/swiper.jquery.js`
+        `${cons.vendor}/swiper/dist/js/swiper.jquery.js`
     ])
     .pipe(cons.$.newer(`${cons.tmp}/scripts`))
     .pipe(cons.$.sourcemaps.init())
