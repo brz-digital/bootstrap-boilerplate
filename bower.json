@@ -17,7 +17,7 @@
     ],
     "authors": [
         "João Paulo Barbosa Neto <jpaulobneto@gmail.com>",
-        "Hugo Fabrício <me@hugofabricio.com>"
+        "Hugo Fabriicio <me@hugofabricio.com>"
     ],
     "license": "MIT",
     "moduleType": "globals",
@@ -33,7 +33,7 @@
         "jquery": "^3.1.1",
         "bootstrap-sass": "^3.*",
         "jquery-mask-plugin": "^1.14.8",
-        "swiper": "^3.4.1",
+        "swiper": "^3.4.2",
         "magnific-popup": "^1.1.0"
     }
 }
