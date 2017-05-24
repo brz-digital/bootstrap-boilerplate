@@ -1,4 +1,20 @@
 // Card
 .card {
 
+    &.-is-release {
+        text-align: center;
+        background-color: $success;
+
+        .card-content {
+            padding: rem(100 0);
+        }
+
+        .title {
+            color: $color10;
+            font-size: rem(18);
+            letter-spacing: rem(2);
+            text-transform: uppercase;
+        }
+    }
+
 }

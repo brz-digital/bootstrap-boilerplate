@@ -1,76 +1,103 @@
 class Slide {
     constructor() {
         console.log('>>> Slide constructor');
-        this.slideInstances = {};
-        this.initSlide();
+
+        this.swiperInstances = {};
+
+        // Call methods
+        this.init();
     }
 
-    initSlide() {
+    init() {
         const that = this;
-        let slide = $('.js-slide');
+        let swiper = $('.js-swiper');
 
-        $(slide).each(function(index, element){
+        $(swiper).each(function(index, element){
             const $container = $(element);
             const settings = {};
 
-            // Set slide settings
+            // Set swiper settings
+            settings.onlyMobile     = $container.data('onlyMobile') || false;
+            settings.autoplay       = $container.data('autoplay') || 0;
+            settings.loop           = $container.data('loop') || false;
             settings.perView        = $container.data('perView') || 1;
-            settings.perViewTablet  = $container.data('perViewTablet') || 2;
-            settings.perViewMobile  = $container.data('perViewMobile') || 1;
+            settings.perViewMD      = $container.data('perViewMd') || 1;
+            settings.perViewSM      = $container.data('perViewSm') || 2;
+            settings.perViewXS      = $container.data('perViewXs') || 1;
             settings.spaceBetween   = $container.data('spaceBetween') || 0;
-            settings.effects        = $container.data('effect') || 'fade';
+            settings.effect         = $container.data('effect') || 'fade';
 
             // Add class index
-            $container.addClass(`slide-${index}`);
-            $container.children('.slide-bullets').addClass(`bullets-${index}`);
-            $container.children('.slide-pagination').addClass(`pagination-${index}`);
+            $container.addClass(`swiper-${index}`);
+            $container.children('.bullets').addClass(`bullets-${index}`);
+            $container.children('.pagination').addClass(`pagination-${index}`);
 
-            // If slide has class -slide-only-mobile
-            if($container.hasClass('-slide-only-mobile')) {
-                if($(window).outerWidth() <= 991) {
-                    that.startSlide(index, settings);
+            // If onlymobile is true
+            if(settings.onlyMobile === true) {
+                // Add class swiper-only-mobile
+                $container.addClass('swiper-only-mobile');
+
+                // Instance swiper if width <= 1199
+                if($(window).outerWidth() <= 1199) {
+                    that.startSwiper($container, index, settings);
                 }
-                that.startSlideOnResize(index, settings);
+
+                // Check swiper on resize, if <= 1199, instance
+                that.startSwiperOnResize($container, index, settings);
             } else {
-                that.startSlide(index, settings);
+                // Instance swiper
+                that.startSwiper($container, index, settings);
             }
         });
     }
 
-    startSlide(index, settings) {
+    startSwiper(container, index, settings) {
         const that = this;
 
-        that.slideInstances[index] = new Swiper(`.slide-${index}`, {
+        container.addClass('swiper');
+        container.find('.wrapper').addClass('swiper-wrapper');
+        container.find('.slide-item').addClass('swiper-slide');
+
+        that.swiperInstances[index] = new Swiper(`.swiper-${index}`, {
             pagination: `.bullets-${index}`,
-            nextButton: `.pagination-${index} .slide-next`,
-            prevButton: `.pagination-${index} .slide-prev`,
             paginationClickable: true,
-            slideClass: 'slide-item',
-            wrapperClass: 'slide-wrapper',
+            nextButton: `.pagination-${index} .swiper-next`,
+            prevButton: `.pagination-${index} .swiper-prev`,
+            loop: settings.loop,
+            autoplay: settings.autoplay,
+            slideClass: 'swiper-slide',
+            wrapperClass: 'swiper-wrapper',
             slidesPerView: settings.perView,
             spaceBetween: settings.spaceBetween,
             effect: settings.effect,
             breakpoints: {
+                1199: {
+                    slidesPerView: settings.perViewMD,
+                },
                 992: {
-                    slidesPerView: settings.perViewTablet,
+                    slidesPerView: settings.perViewSM,
                 },
                 600: {
-                    slidesPerView: settings.perViewMobile
+                    slidesPerView: settings.perViewXS
                 }
             }
         });
     }
 
-    startSlideOnResize(index, settings) {
+    startSwiperOnResize(container, index, settings) {
         const that = this;
 
         $(window).resize(function() {
-            if( $(window).outerWidth() <= 991 && !that.slideInstances[index] ){
-                that.startSlide(index, settings);
-            } else if($(window).outerWidth() >= 992) {
-                if ( that.slideInstances[index] ){
-                    that.slideInstances[index].destroy(false, true);
-                    that.slideInstances[index] = undefined;
+            if( $(window).outerWidth() <= 1199 && !that.swiperInstances[index] ){
+                that.startSwiper(container, index, settings);
+            } else if($(window).outerWidth() >= 1200) {
+                container.removeClass('swiper');
+                container.find('.wrapper').removeClass('swiper-wrapper');
+                container.find('.slide-item').removeClass('swiper-slide');
+
+                if ( that.swiperInstances[index] ){
+                    that.swiperInstances[index].destroy(false, true);
+                    that.swiperInstances[index] = undefined;
                 }
             }
         });

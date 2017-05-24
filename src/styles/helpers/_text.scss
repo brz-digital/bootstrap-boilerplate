@@ -1,12 +1,12 @@
 // Font
 .font {
-    &.-font-bold {
+    &-bold {
         font-weight: 700;
     }
-    &.-font-black {
+    &-black {
         font-weight: 900;
     }
-    &.-font-italic {
+    &-italic {
         font-style: italic;
     }
 }

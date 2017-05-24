@@ -7,103 +7,69 @@
     <title>BRZ Boilerplate</title>
 
     <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="./favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="./favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="mask-icon" href="./favicons/safari-pinned-tab.svg" color="#ffffff">
+    <link rel="shortcut icon" href="./favicons/favicon.ico">
 
+    <link rel="manifest" href="./manifest.json">
+    <meta name="apple-mobile-web-app-title" content="BRZ Boilerplate">
+    <meta name="application-name" content="BRZ Boilerplate">
+    <meta name="msapplication-config" content="./browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
 
     <!-- styles -->
     <link href="./styles/main.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
-<body data-module="Common">
+<body class="body" data-module="Common">
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <!-- header -->
+    <header class="header">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Menu</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="./index.html">BRZ Boilerplate</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-
+            <div class="brand">
+                <a href="./index.html" title="BRZ Digital">
+                    <img class="logo" src="http://assets.brzdigital.com.br/brzdigital.svg" alt="BRZ Digital">
+                </a>
             </div>
         </div>
-    </nav>
+    </header>
 
     <!-- main -->
     <main class="main" role="main">
 
-        <section class="section -example">
+        <section class="section -is-intro">
             <div class="container">
                 <header class="heading">
                     <h2 class="title">Hello BRZ!</h2>
                 </header>
-                <article class="content">
-                    <div class="js-slide slide row" data-per-view="4" data-per-view-tablet="2" data-space-between="30">
-                        <div class="slide-wrapper">
-                            <div class="slide-item col-sm-12 col-md-3">
-                                <div class="card" role="article">
-                                    <div class="details">
-                                        <h2 class="title">Titulo do imovel do imovel</h2>
-                                        <ul class="list">
-                                            <li class="item icon -localizacao-before">Jardim Luna</li>
-                                            <li class="item icon -quarto-before">03 quartos</li>
-                                            <li class="item icon -metros-before">1000m²</li>
-                                        </ul>
+                <div class="content">
+                    <div class="js-swiper slide" data-loop="true" data-per-view-sm="1">
+                        <div class="wrapper">
+                            <div class="slide-item">
+                                <article class="card -is-release" role="article">
+                                    <div class="card-content">
+                                        <div class="card-caption">
+                                            <h2 class="title">Lorem ipsum dolor 1</h2>
+                                        </div>
                                     </div>
-                                </div>
+                                </article>
                             </div>
 
-                            <div class="slide-item col-sm-12 col-md-3">
-                                <div class="card" role="article">
-                                    <div class="details">
-                                        <h2 class="title">Titulo do imovel do imovel</h2>
-                                        <ul class="list">
-                                            <li class="item icon -localizacao-before">Jardim Luna</li>
-                                            <li class="item icon -quarto-before">03 quartos</li>
-                                            <li class="item icon -metros-before">1000m²</li>
-                                        </ul>
+                            <div class="slide-item">
+                                <article class="card -is-release" role="article">
+                                    <div class="card-content">
+                                        <div class="card-caption">
+                                            <h2 class="title">Lorem ipsum dolor 2</h2>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-
-                            <div class="slide-item col-sm-12 col-md-3">
-                                <div class="card" role="article">
-                                    <div class="details">
-                                        <h2 class="title">Titulo do imovel do imovel</h2>
-                                        <ul class="list">
-                                            <li class="item icon -localizacao-before">Jardim Luna</li>
-                                            <li class="item icon -quarto-before">03 quartos</li>
-                                            <li class="item icon -metros-before">1000m²</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="slide-item col-sm-12 col-md-3">
-                                <div class="card" role="article">
-                                    <div class="details">
-                                        <h2 class="title">Titulo do imovel do imovel</h2>
-                                        <ul class="list">
-                                            <li class="item icon -localizacao-before">Jardim Luna</li>
-                                            <li class="item icon -quarto-before">03 quartos</li>
-                                            <li class="item icon -metros-before">1000m²</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                </article>
                             </div>
                         </div>
-                        <div class="slide-bullets"></div>
+                        <div class="bullets"></div>
                     </div>
-                </article>
+                </div>
                 <footer class="footing">
 
                 </footer>
@@ -113,8 +79,10 @@
     </main>
 
     <!-- footer -->
-    <footer>
-
+    <footer class="footer">
+        <div class="container">
+            <small>BRZ Digital</small>
+        </div>
     </footer>
 
     <!-- scripts -->

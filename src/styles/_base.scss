@@ -15,12 +15,11 @@ body {
 a,
 button {
     outline: none !important;
-    transition-duration: 0.4s;
+    transition: all .4s ease;
     &:hover,
     &:visited,
     &:focus {
-        text-decoration: none !important;
-        transition-duration: 0.4s;
+        text-decoration: none;
     }
 }
 

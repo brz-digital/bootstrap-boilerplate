@@ -1,10 +1,12 @@
 class Mask {
     constructor() {
         console.log('>>> Mask constructor');
-        this.initMask();
+
+        // Call methods
+        this.init();
     }
 
-    initMask() {
+    init() {
         // Slug
         $('.js-mask-slug').keyup(function() {
             let input = $(this);

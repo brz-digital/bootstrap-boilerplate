@@ -6,7 +6,7 @@ gulp.task('copy', () => {
     return gulp.src([
         `${cons.tmp}/**/*`,
         `${cons.src}/*`,
-        `!${cons.src}/*.html`,
+        //`!${cons.src}/*.html`,
         `!${cons.src}/placeholder`,
         `!${cons.src}/libs`
     ], {dot: true})

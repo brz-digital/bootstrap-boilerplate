@@ -3,8 +3,10 @@ import gulp from 'gulp';
 
 gulp.task('vendors', () => {
     return gulp.src([
+        // Jquery
         `${cons.vendor}/jquery/dist/jquery.js`,
 
+        // Bootstrap
         `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/transition.js`,
         `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/alert.js`,
         `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/button.js`,
@@ -12,8 +14,13 @@ gulp.task('vendors', () => {
         `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/affix.js`,
         `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js`,
 
+        // Jquery Mask
         `${cons.vendor}/jquery-mask-plugin/dist/jquery.mask.js`,
+
+        // Magnific
         `${cons.vendor}/magnific-popup/dist/jquery.magnific-popup.js`,
+
+        // Swiper
         `${cons.vendor}/swiper/dist/js/swiper.jquery.js`
     ])
     .pipe(cons.$.newer(`${cons.tmp}/scripts`))
