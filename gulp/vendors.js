@@ -17,9 +17,6 @@ gulp.task('vendors', () => {
         // Jquery Mask
         `${cons.vendor}/jquery-mask-plugin/dist/jquery.mask.js`,
 
-        // Magnific
-        `${cons.vendor}/magnific-popup/dist/jquery.magnific-popup.js`,
-
         // Swiper
         `${cons.vendor}/swiper/dist/js/swiper.jquery.js`
     ])
