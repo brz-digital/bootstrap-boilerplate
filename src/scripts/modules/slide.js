@@ -10,39 +10,40 @@ class Slide {
 
   init() {
     const that = this;
-    const swiper = $('.js-swiper');
 
-    $(swiper).each((index, element) => {
+    $('.js-swiper').each((index, element) => {
       const $container = $(element);
-      const settings = {};
 
       // Set swiper settings
-      settings.onlyMobile = $container.data('onlyMobile') || false;
-      settings.autoplay = $container.data('autoplay') || 0;
-      settings.loop = $container.data('loop') || false;
-      settings.perView = $container.data('perView') || 1;
-      settings.perViewMD = $container.data('perViewMd') || 1;
-      settings.perViewSM = $container.data('perViewSm') || 2;
-      settings.perViewXS = $container.data('perViewXs') || 1;
-      settings.spaceBetween = $container.data('spaceBetween') || 0;
-      settings.effect = $container.data('effect') || 'fade';
+      const settings = {
+        onlyMobile:   $container.data('onlyMobile')   || false,
+        autoplay:     $container.data('autoplay')     || false,
+        loop:         $container.data('loop')         || false,
+        perView:      $container.data('perView')      || 1,
+        perViewMD:    $container.data('perViewMd')    || 1,
+        perViewSM:    $container.data('perViewSm')    || 1,
+        perViewXS:    $container.data('perViewXs')    || 1,
+        spaceBetween: $container.data('spaceBetween') || 0,
+        effect:       $container.data('effect')       || 'fade',
+        pagination:   $container.data('pagination')   || 'bullets'
+      };
 
       // Add class index
       $container.addClass(`swiper-${index}`);
-      $container.children('.bullets').addClass(`bullets-${index}`);
-      $container.children('.pagination').addClass(`pagination-${index}`);
+      $container.find('.slide-counter').addClass(`pagination-counter-${index}`);
+      $container.find('.slide-pagination').addClass(`pagination-${index}`);
 
       // If onlymobile is true
       if (settings.onlyMobile === true) {
         // Add class swiper-only-mobile
         $container.addClass('swiper-only-mobile');
 
-        // Instance swiper if width <= 1199
-        if ($(window).outerWidth() <= 1199) {
+        // Instance swiper if width <= settings.mobileBreakpoint
+        if ($(window).outerWidth() <= 991) {
           that.startSwiper($container, index, settings);
         }
 
-        // Check swiper on resize, if <= 1199, instance
+        // Check swiper on resize, if <= settings.mobileBreakpoint, instance
         that.startSwiperOnResize($container, index, settings);
       } else {
         // Instance swiper
@@ -54,15 +55,20 @@ class Slide {
   startSwiper(container, index, settings) {
     const that = this;
 
-    container.addClass('swiper');
+    container.addClass('swiper slide');
     container.find('.wrapper').addClass('swiper-wrapper');
     container.find('.slide-item').addClass('swiper-slide');
 
     that.swiperInstances[index] = new Swiper(`.swiper-${index}`, {
-      pagination: `.bullets-${index}`,
-      paginationClickable: true,
-      nextButton: `.pagination-${index} .swiper-next`,
-      prevButton: `.pagination-${index} .swiper-prev`,
+      pagination: {
+        el: `.pagination-counter-${index}`,
+        clickable: true,
+        type: settings.pagination,
+      },
+      navigation: {
+        nextEl: `.pagination-${index} .swiper-button-next`,
+        prevEl: `.pagination-${index} .swiper-button-prev`,
+      },
       loop: settings.loop,
       autoplay: settings.autoplay,
       slideClass: 'swiper-slide',
@@ -74,10 +80,10 @@ class Slide {
         1199: {
           slidesPerView: settings.perViewMD,
         },
-        992: {
+        991: {
           slidesPerView: settings.perViewSM,
         },
-        600: {
+        767: {
           slidesPerView: settings.perViewXS,
         },
       },
@@ -88,9 +94,9 @@ class Slide {
     const that = this;
 
     $(window).resize(() => {
-      if ($(window).outerWidth() <= 1199 && !that.swiperInstances[index]) {
+      if ($(window).outerWidth() <= 991 && !that.swiperInstances[index]) {
         that.startSwiper(container, index, settings);
-      } else if ($(window).outerWidth() >= 1200) {
+      } else if ($(window).outerWidth() >= 992) {
         container.removeClass('swiper');
         container.find('.wrapper').removeClass('swiper-wrapper');
         container.find('.slide-item').removeClass('swiper-slide');
