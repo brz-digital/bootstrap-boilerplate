@@ -25,7 +25,8 @@ class Slide {
         perViewXS:    $container.data('perViewXs')    || 1,
         spaceBetween: $container.data('spaceBetween') || 0,
         effect:       $container.data('effect')       || 'fade',
-        pagination:   $container.data('pagination')   || 'bullets'
+        pagination:   $container.data('pagination')   || 'bullets',
+        direction:    $container.data('direction')   || 'horizontal',
       };
 
       // Add class index
@@ -69,6 +70,7 @@ class Slide {
         nextEl: `.pagination-${index} .swiper-button-next`,
         prevEl: `.pagination-${index} .swiper-button-prev`,
       },
+      direction: settings.direction,
       loop: settings.loop,
       autoplay: settings.autoplay,
       slideClass: 'swiper-slide',
