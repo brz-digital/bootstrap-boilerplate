@@ -3,9 +3,9 @@ $fontastic: 'bootstrap-boilerplate';
 
 /* Fontastic */
 @include font-face(
-    $fontastic,
-    "../fonts/fontastic/#{$fontastic}",
-    normal,
-    normal,
-    eot woff ttf svg
+  $fontastic,
+  "../fonts/fontastic/#{$fontastic}",
+  normal,
+  normal,
+  eot woff ttf svg
 );

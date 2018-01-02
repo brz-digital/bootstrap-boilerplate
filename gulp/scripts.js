@@ -24,7 +24,7 @@ gulp.task('scripts', function () {
             path.basename += ".min";
             path.extname = ".js"
         }))
-        .pipe(cons.$.uglify({preserveComments: 'some'})).on('error', cons.$.util.log)
+        .pipe(cons.$.uglify()).on('error', cons.$.util.log)
         .pipe(cons.$.sourcemaps.write('./'))
         .pipe(gulp.dest(`${cons.dist}/scripts`))
         .pipe(cons.$.size({title: '[scripts]'}));

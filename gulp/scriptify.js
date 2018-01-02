@@ -36,7 +36,7 @@ function scriptify() {
             path.basename += ".min";
             path.extname = ".js"
         }))
-        .pipe(cons.$.uglify({preserveComments: 'some'}))
+        .pipe(cons.$.uglify())
         .pipe(cons.$.sourcemaps.write('./')) // writes .map file
         .pipe(gulp.dest(`${cons.tmp}/scripts`))
         .pipe(cons.reload({stream: true}));

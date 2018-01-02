@@ -1,15 +1,17 @@
 import Mask from './mask';
 import Slide from './slide';
+import Share from './share';
 
 class Common {
   constructor() {
     console.log('>>> Common constructor');
 
-        // Instance imports
+    // Instance imports
     new Mask();
     new Slide();
+    new Share();
 
-        // Call methods
+    // Call methods
     this.fixedI10();
     this.disableZoomGesture();
   }

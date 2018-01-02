@@ -30,9 +30,9 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "^3.1.1",
+    "jquery": "^3.2.1",
     "bootstrap-sass": "^3.*",
-    "swiper": "^4.0.5",
-    "jquery-mask-plugin": "^1.14.12"
+    "swiper": "^4.0.7",
+    "jquery-mask-plugin": "^1.14.13"
   }
 }

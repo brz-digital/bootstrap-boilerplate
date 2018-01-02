@@ -1,0 +1,23 @@
+// Font
+.f {
+  // Font Family
+
+  // Font Variations
+  &-light {
+    font-weight: 300;
+  }
+
+  &-bold {
+    font-weight: 700;
+  }
+
+  &-black {
+    font-weight: 900;
+  }
+
+  &-italic {
+    font-style: italic;
+  }
+
+  // Font effects
+}

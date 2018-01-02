@@ -2,14 +2,9 @@ class Slide {
   constructor() {
     console.log('>>> Slide constructor');
 
-    this.swiperInstances = {};
-
-    // Call methods
-    this.init();
-  }
-
-  init() {
     const that = this;
+
+    this.swiperInstances = {};
 
     $('.js-swiper').each((index, element) => {
       const $container = $(element);

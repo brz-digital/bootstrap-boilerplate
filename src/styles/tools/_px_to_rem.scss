@@ -1,14 +1,14 @@
 // PX to REM
 @function rem($values) {
-    $list: ();
+  $list: ();
 
-    @each $value in $values {
-        @if $value == 'auto' {
-            $list: append($list, $value);
-        } @else {
-            $list: append($list, ($value/16) + rem);
-        }
+  @each $value in $values {
+    @if $value == 'auto' {
+      $list: append($list, $value);
+    } @else {
+      $list: append($list, ($value/16) + rem);
     }
+  }
 
-    @return $list();
+  @return $list();
 }
