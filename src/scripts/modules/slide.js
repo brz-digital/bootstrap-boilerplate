@@ -12,6 +12,7 @@ class Slide {
       // Set swiper settings
       const settings = {
         onlyMobile:   $container.data('onlyMobile')   || false,
+        mobileBreak:  $container.data('mobileBreak')  || 991,
         autoplay:     $container.data('autoplay')     || false,
         loop:         $container.data('loop')         || false,
         perView:      $container.data('perView')      || 1,
@@ -21,7 +22,7 @@ class Slide {
         spaceBetween: $container.data('spaceBetween') || 0,
         effect:       $container.data('effect')       || 'fade',
         pagination:   $container.data('pagination')   || 'bullets',
-        direction:    $container.data('direction')   || 'horizontal',
+        direction:    $container.data('direction')    || 'horizontal',
       };
 
       // Add class index
@@ -35,7 +36,7 @@ class Slide {
         $container.addClass('swiper-only-mobile');
 
         // Instance swiper if width <= settings.mobileBreakpoint
-        if ($(window).outerWidth() <= 991) {
+        if ($(window).outerWidth() <= settings.mobileBreak) {
           that.startSwiper($container, index, settings);
         }
 
@@ -51,7 +52,7 @@ class Slide {
   startSwiper(container, index, settings) {
     const that = this;
 
-    container.addClass('swiper slide');
+    container.addClass('swiper');
     container.find('.wrapper').addClass('swiper-wrapper');
     container.find('.slide-item').addClass('swiper-slide');
 
@@ -91,9 +92,9 @@ class Slide {
     const that = this;
 
     $(window).resize(() => {
-      if ($(window).outerWidth() <= 991 && !that.swiperInstances[index]) {
+      if ($(window).outerWidth() <= settings.mobileBreak && !that.swiperInstances[index]) {
         that.startSwiper(container, index, settings);
-      } else if ($(window).outerWidth() >= 992) {
+      } else if ($(window).outerWidth() >= settings.mobileBreak + 1) {
         container.removeClass('swiper');
         container.find('.wrapper').removeClass('swiper-wrapper');
         container.find('.slide-item').removeClass('swiper-slide');
