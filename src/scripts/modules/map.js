@@ -19,7 +19,7 @@ class Map {
             "elementType": "geometry",
             "stylers": [
                 {
-                    "color": "#f7f1df"
+                  "color": "#f7f1df"
                 }
             ]
         },
@@ -28,7 +28,7 @@ class Map {
             "elementType": "geometry",
             "stylers": [
                 {
-                    "color": "#d0e3b4"
+                  "color": "#d0e3b4"
                 }
             ]
         },
@@ -37,7 +37,7 @@ class Map {
             "elementType": "geometry",
             "stylers": [
                 {
-                    "visibility": "off"
+                  "visibility": "off"
                 }
             ]
         },
@@ -46,7 +46,7 @@ class Map {
             "elementType": "labels",
             "stylers": [
                 {
-                    "visibility": "off"
+                  "visibility": "off"
                 }
             ]
         },
@@ -55,7 +55,7 @@ class Map {
             "elementType": "all",
             "stylers": [
                 {
-                    "visibility": "off"
+                  "visibility": "off"
                 }
             ]
         },
@@ -64,7 +64,7 @@ class Map {
             "elementType": "geometry",
             "stylers": [
                 {
-                    "color": "#fbd3da"
+                  "color": "#fbd3da"
                 }
             ]
         },

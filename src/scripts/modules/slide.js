@@ -15,7 +15,10 @@ class Slide {
         mobileBreak:  $container.data('mobileBreak')  || 991,
         autoplay:     $container.data('autoplay')     || false,
         loop:         $container.data('loop')         || false,
+        autoHeight:   $container.data('autoheight')   || false,
         perView:      $container.data('perView')      || 1,
+        perViewXL:    $container.data('perViewXl')    || 1,
+        perViewLG:    $container.data('perViewLg')    || 1,
         perViewMD:    $container.data('perViewMd')    || 1,
         perViewSM:    $container.data('perViewSm')    || 1,
         perViewXS:    $container.data('perViewXs')    || 1,
@@ -66,6 +69,7 @@ class Slide {
         nextEl: `.pagination-${index} .swiper-button-next`,
         prevEl: `.pagination-${index} .swiper-button-prev`,
       },
+      autoHeight: settings.autoHeight,
       direction: settings.direction,
       loop: settings.loop,
       autoplay: settings.autoplay,
@@ -74,7 +78,14 @@ class Slide {
       slidesPerView: settings.perView,
       spaceBetween: settings.spaceBetween,
       effect: settings.effect,
+      simulateTouch: false,
       breakpoints: {
+        2600: {
+          slidesPerView: settings.perViewXL,
+        },
+        1599: {
+          slidesPerView: settings.perViewLG,
+        },
         1199: {
           slidesPerView: settings.perViewMD,
         },

@@ -1,4 +1,3 @@
-import Swal from '../../node_modules/sweetalert';
 import Common from './modules/common';
 import Map from './modules/map';
 
@@ -21,23 +20,6 @@ $(() => {
   });
 });
 
-$.fn.serializeObject = function()
-{
-  var o = {};
-  var a = this.serializeArray();
-  $.each(a, function() {
-    if (o[this.name]) {
-      if (!o[this.name].push) {
-        o[this.name] = [o[this.name]];
-      }
-      o[this.name].push(this.value || '');
-    } else {
-      o[this.name] = this.value || '';
-    }
-  });
-  return o;
-};
-
-$.fn.existsWithValue = function() {
-  return this.length && this.val().length;
-}
+document.addEventListener('DOMContentLoaded', function(event) {
+  console.log("%cMade in BRZ Digital! \ud83d\ude42 We love to inspect codes too \ud83d\udc40", "font-size: 16px; color: #a7bf34");
+});

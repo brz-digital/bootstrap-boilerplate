@@ -8,7 +8,6 @@ const reload = browserSync.reload;
 const dist = 'dist';
 const src = 'src';
 const tmp = '.tmp';
-const vendor = 'bower_components';
-const libs = 'libs';
+const vendor = 'node_modules';
 
-export { $, reload, dist, src, tmp, vendor, libs };
+export { $, reload, dist, src, tmp, vendor };

@@ -1,4 +1,4 @@
-import * as cons from './constants';
+ import * as cons from './constants';
 import gulp from 'gulp';
 
 gulp.task('vendors', () => {
@@ -10,18 +10,17 @@ gulp.task('vendors', () => {
     `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/transition.js`,
     `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/alert.js`,
     `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/button.js`,
+    `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js`,
     `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/modal.js`,
     `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/affix.js`,
+    `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js`,
     `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js`,
 
     // Jquery Mask
     `${cons.vendor}/jquery-mask-plugin/dist/jquery.mask.js`,
 
     // Swiper
-    `${cons.vendor}/swiper/dist/js/swiper.js`,
-
-    // Maps
-    `${cons.libs}/maps/jquery.maps.js`
+    `${cons.vendor}/swiper/dist/js/swiper.js`
   ])
   .pipe(cons.$.newer(`${cons.tmp}/scripts`))
   .pipe(cons.$.sourcemaps.init())

@@ -6,4 +6,5 @@ bower_components
 dist
 node_modules
 npm-debug.log
+yarn.lock
 *.env

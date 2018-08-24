@@ -1,19 +1,32 @@
-import Mask from './mask';
 import Slide from './slide';
-import Share from './share';
+import Mask from './mask';
+import Send from './send';
 
 class Common {
   constructor() {
     console.log('>>> Common constructor');
 
     // Instance imports
-    new Mask();
     new Slide();
-    new Share();
+    new Mask();
+    new Send();
 
     // Call methods
+    this.scrollToTarget();
     this.fixedI10();
     this.disableZoomGesture();
+  }
+
+  scrollToTarget() {
+    $('.js-scroll-to').on('click', function(e) {
+      e.preventDefault();
+
+      let target = $(this).attr('href');
+
+      $('html, body').animate({
+        scrollTop: $(target).offset().top
+      }, 800);
+    });
   }
 
   fixedI10() {

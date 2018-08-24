@@ -1,74 +1,100 @@
+import axios from '../../../node_modules/axios';
+import swal from '../../../node_modules/sweetalert';
+
 class Send {
   constructor() {
     console.log('>>> Send constructor');
 
-    $('.js-send-form').on('submit', function(e) {
-      e.preventDefault();
+    let buttons = document.getElementsByClassName('js-send-form');
 
-      let form = $(this);
+    Array.from(buttons).forEach((button) => {
+      button.addEventListener('click', (evt) => {
+        evt.preventDefault();
 
-      let data = new FormData(this);
+        let form = evt.target.closest('.form');
 
-      if(form.find('.js-input-file').existsWithValue()) {
-        data.append('file', $('.js-input-file')[0].files);
-      }
-
-      $.ajax({
-        'headers': {
-          'X-CSRF-Token' : $('meta[name="csrf-token"]').attr('content')
-        },
-        'url': form.attr('action'),
-        'method': 'POST',
-        'data': data,
-        'cache': false,
-        'contentType': false,
-        'processData': false,
-        'success': function(resp) {
-          // Remove error message
-          $('.help-block').empty();
-
-          // Reset form
-          form[0].reset();
-          $('.js-input-file').each( function() {
-            let input = $(this),
-                label = input.next('.label');
-
-            label.addClass('icon-right-after').text('Selecionar')
-          });
-
-          // Hide modal
-          setTimeout(function(){
-            // Hide modal
-            $('.modal').modal('hide');
-          }, 500);
-
-          // Show alert success
-          Swal({
-            icon: 'success',
-            title: resp.title,
-            text: resp.message,
-            buttons: false,
-            timer: 4000
-          });
-
-          // Redirect page
-          if(typeof resp.redirect !== 'undefined') {
-            setTimeout(function(){
-              window.location.replace(resp.redirect);
-            }, 3000);
-          }
-        },
-        'error': function(resp){
-          // Remove error message
-          $('.help-block').empty();
-
-          // Add error message
-          $.each(resp.responseJSON.errors, function (key, value) {
-            let input = form.find('.js-validate[name=' + key + ']').closest('.form-group');
-                input.find('.help-block').text(value);
-          });
-        }
+        this.handleOnSubmit(form, evt, button);
       });
+    });
+  }
+
+  handleOnSubmit(form, evt, button) {
+    let formData = new FormData();
+    let formAction = form.action;
+
+    if (button.hasAttribute('formAction')) {
+      formAction = button.formAction;
+    }
+
+    for (let i = 0; i < form.length; ++i) {
+      formData.append(form[i].name, form[i].value);
+    }
+
+    axios({
+      method: 'post',
+      url: formAction,
+      data: formData
+    })
+    .then(response => {
+      this.handleResponse(response.data, form);
+    }, error => {
+      this.handleError(error.response.data, form);
+    });
+  }
+
+  handleResponse(response, form) {
+    // Remove validations
+    this.removeValidation(form);
+
+    // Hide modal
+    $('.modal').modal('hide');
+
+    // Reset form
+    form.reset();
+
+    // Show alert
+    swal({
+      title: response.title,
+      text: response.message,
+      icon: 'success',
+      timer: 3000,
+      buttons: false
+    });
+
+    // Redirect page
+    if(typeof response.redirect !== 'undefined') {
+      setTimeout(function(){
+        window.location.replace(response.redirect);
+      }, 3000);
+    }
+  }
+
+  handleError(error, form) {
+    this.removeValidation(form);
+    this.addValidation(form, error);
+  }
+
+  addValidation(form, error) {
+    let data = error.data;
+    for (let key in data) {
+      let input = form.querySelector(`[name^=${key}`);
+      let group = input.closest('.form-group');
+          group.classList.add('-error');
+
+      let label = document.createElement('span');
+          label.classList.add('help-block');
+          label.innerHTML = data[key];
+
+      group.appendChild(label);
+    }
+  }
+
+  removeValidation(form) {
+    let groups = form.querySelectorAll('.form-group');
+
+    Array.from(groups).forEach((group) => {
+      if (group.classList.contains('-error')) group.classList.remove('-error');
+      if (group.querySelector('.help-block')) group.removeChild(group.querySelector('.help-block'));
     });
   }
 }

@@ -1,17 +1,4 @@
 // Header
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1499;
-  width: 100%;
-  display: block;
-  height: rem(60);
-  background-color: $color15;
-  color: $color10;
 
-  .brand {
-    width: rem(50);
-    line-height: rem(60);
-  }
 }
