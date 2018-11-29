@@ -1,4 +1,19 @@
 // Form
 .form {
 
+  .input,
+  .textarea {
+    border-color: transparent;
+    background-color: transparent;
+    box-shadow: none !important;
+    border-radius: 0;
+    border-bottom: rem(1) solid $color29;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .textarea {
+    resize: none;
+  }
+
 }

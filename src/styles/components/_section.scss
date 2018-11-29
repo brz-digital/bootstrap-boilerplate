@@ -1,4 +1,25 @@
 // Section
 .section {
+  &.-course {
+    padding-top: rem(80);
+    padding-bottom: rem(80);
+  }
 
+  &.-contact {
+    .section-heading {
+      text-align: center;
+      padding-top: rem(80);
+      padding-bottom: rem(80);
+      background-color: $color30;
+    }
+  }
+
+  &.-conversion {
+    padding-top: rem(80);
+    padding-bottom: rem(80);
+    background-color: $color30;
+    .section-heading {
+      margin-bottom: rem(40);
+    }
+  }
 }

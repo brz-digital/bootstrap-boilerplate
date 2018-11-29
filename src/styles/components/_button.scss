@@ -1,4 +1,7 @@
 // Button
 .btn {
-
+  &.-default {
+    color: $color10;
+    background-color: $color40;
+  }
 }

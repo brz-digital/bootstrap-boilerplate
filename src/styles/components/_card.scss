@@ -1,4 +1,37 @@
 // Card
 .card {
+  &.-course {
+    background-color: $color29;
+    height: rem(350);
+    text-align: center;
 
+    .card-content {
+      width: 100%;
+      height: 100%;
+      position: relative;
+
+      .card-title {
+        color: $color30;
+        font-size: rem(22);
+      }
+
+      .card-figure {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        .card-image {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      &:hover {
+        .card-title {
+          color: $color10;
+        }
+      }
+    }
+  }
 }
