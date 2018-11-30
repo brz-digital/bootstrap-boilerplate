@@ -1,5 +1,7 @@
 // Fonts
 $fontastic: 'bootstrap-boilerplate';
+$likely: 'likely';
+$likelySansFill: 'likely-sans-fill';
 
 /* Fontastic */
 @include font-face(
@@ -8,4 +10,22 @@ $fontastic: 'bootstrap-boilerplate';
   normal,
   normal,
   eot woff ttf svg
+);
+
+/* Fontastic */
+@include font-face(
+  $likely,
+  "../fonts/likely/Likely-Regular",
+  normal,
+  normal,
+  woff woff2
+);
+
+/* Fontastic */
+@include font-face(
+  $likelySansFill,
+  "../fonts/likely/LikelySansFill-Regular",
+  normal,
+  normal,
+  woff woff2
 );

@@ -80,6 +80,23 @@
     </section>
 
     <aside class="menu -courses clearfix">
+      <svg class="defs-only">
+        <filter id="monochrome" color-interpolation-filters="sRGB" x="0" y="0" height="100%" width="100%">
+          <feColorMatrix type="matrix"
+            values="0.95 0 0 0 0.05
+                    0.85 0 0 0 0.15
+                    0.90 0 0 0 0.30
+                    0    0 0 1 0" />
+        </filter>
+
+        <filter id="nofilter" color-interpolation-filters="sRGB" x="0" y="0" height="100%" width="100%">
+          <feColorMatrix type="matrix"
+            values="1 0 0 0 0
+                    0 1 0 0 0
+                    0 0 1 0 0
+                    0 0 0 1 0 "/>
+        </filter>
+      </svg>
       <h2 class="sr-only">Cursos</h2>
       <div class="card-container">
         <article class="card -course col-sm-3">
@@ -87,12 +104,13 @@
             <div class="card-caption">
               <h3 class="card-title">Fundamental</h3>
             </div>
+            <div class="card-filter"></div>
             <div class="card-figure">
               <div class="card-image bg-cover" style="background-image: url('./images/courses/fundamental.jpg');"></div>
             </div>
           </div>
         </article>
-        <article class="card -course col-sm-3">
+        <article class="card -course -active col-sm-3">
           <div class="card-content">
             <div class="card-caption">
               <h3 class="card-title">Enem</h3>
@@ -168,8 +186,8 @@
               <div class="card-content">
                 <div class="card-caption">
                   <h4 class="card-title">Telefone</h4>
-                  <p class="card-text">Unidade João Pessoa - <a href="tel:558332469364" title="83 3246.9364">83 3246.9364</a> / <a href="tel:558332469364" title="83 3246.9364">83 3246.9364</a></p>
-                  <p class="card-text">Unidade Campina Grande - <a href="tel:" title="">83 0000.0000</a></p>
+                  <p class="card-text">Unidade João Pessoa - <a class="card-link" href="tel:558332469364" title="83 3246.9364">83 3246.9364</a> / <a class="card-link" href="tel:558332469364" title="83 3246.9364">83 3246.9364</a></p>
+                  <p class="card-text">Unidade Campina Grande - <a class="card-link" href="tel:" title="">83 0000.0000</a></p>
                 </div>
               </div>
             </div>

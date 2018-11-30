@@ -1,5 +1,10 @@
 // Section
 .section {
+  .title {
+    font-size: rem(36);
+    font-family: $likelySansFill;
+  }
+
   &.-course {
     padding-top: rem(80);
     padding-bottom: rem(80);
@@ -11,6 +16,10 @@
       padding-top: rem(80);
       padding-bottom: rem(80);
       background-color: $color30;
+      .title {
+        font-size: rem(52);
+        color: $color40;
+      }
     }
   }
 
@@ -20,6 +29,9 @@
     background-color: $color30;
     .section-heading {
       margin-bottom: rem(40);
+      .title {
+        color: $color40;
+      }
     }
   }
 }
