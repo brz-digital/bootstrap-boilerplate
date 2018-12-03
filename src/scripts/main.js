@@ -1,7 +1,7 @@
 import Common from './modules/common';
-import Map from './modules/map';
+import GoogleMap from './modules/googlemap';
 
-const availableModules = { Common, Map };
+const availableModules = { Common, GoogleMap };
 
 window.modules = {};
 

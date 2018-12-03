@@ -1,25 +1,27 @@
-// Map
+/**
+ * Map
+ */
+
 .map {
+  width: 100%;
   height: rem(400);
+  display: block;
 
   .map-card {
-    width: 100%;
-    padding: rem(20);
-
     .map-caption {
-      .map-title {
-        display: block;
-        text-transform: uppercase;
-        margin-bottom: rem(5);
-        font-size: rem(16);
-        font-weight: 700;
-      }
-
-      .map-address {
-        display: block;
-        text-transform: uppercase;
-        font-size: rem(14);
-      }
+      padding: rem(15px);
+    }
+    .map-title {
+      font-color: $color29;
+      font-size: rem(16px);
+      font-weight: 700;
+      display: block;
+      margin-bottom: rem(10px);
+    }
+    .map-address {
+      font-weight: 700;
+      color: $color18;
+      display: block;
     }
   }
 }

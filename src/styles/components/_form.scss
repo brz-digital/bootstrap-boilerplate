@@ -3,6 +3,7 @@
 
   .input,
   .textarea {
+    font-size: rem(14);
     border-color: transparent;
     background-color: transparent;
     box-shadow: none !important;
@@ -15,6 +16,7 @@
 
   .textarea {
     resize: none;
+    height: rem(138);
   }
 
 }

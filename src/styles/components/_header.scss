@@ -1,4 +1,10 @@
 // Header
 .header {
-
+  width: 100%;
+  height: rem(120);
+  position: absolute;
+  z-index: 1020;
+  @media screen and (max-width: $screen-xs-max) {
+    height: rem(60);
+  }
 }

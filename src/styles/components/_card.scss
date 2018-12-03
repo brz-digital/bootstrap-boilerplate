@@ -71,6 +71,15 @@
         filter: none;
       }
     }
+
+    @media screen and (max-width: $screen-sm-max) {
+      height: rem(175);
+      .card-content {
+        .card-title {
+          font-size: rem(18);
+        }
+      }
+    }
   }
 
   &.-contact {
@@ -84,6 +93,7 @@
       .card-text,
       .card-link {
         color: $color18;
+        margin: 0;
       }
     }
   }

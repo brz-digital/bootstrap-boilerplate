@@ -20,7 +20,10 @@ gulp.task('vendors', () => {
     `${cons.vendor}/jquery-mask-plugin/dist/jquery.mask.js`,
 
     // Swiper
-    `${cons.vendor}/swiper/dist/js/swiper.js`
+    `${cons.vendor}/swiper/dist/js/swiper.js`,
+
+    // Maps
+    `${cons.lib}/jquery.maps.js`,
   ])
   .pipe(cons.$.newer(`${cons.tmp}/scripts`))
   .pipe(cons.$.sourcemaps.init())

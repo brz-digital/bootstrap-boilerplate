@@ -5,6 +5,31 @@
     font-family: $likelySansFill;
   }
 
+  &.-intro {
+    .section-banner {
+      .img-responsive {
+        min-width: 100%;
+      }
+    }
+  }
+
+  &.-courses {
+    position: relative;
+    &:before {
+      content: '';
+      background-image: url('../images/arrow.svg');
+      width: rem(40);
+      height: rem(47);
+      display: block;
+      position: absolute;
+      margin: auto;
+      top: rem(-25);
+      left: 0;
+      right: 0;
+      z-index: 998;
+    }
+  }
+
   &.-course {
     padding-top: rem(80);
     padding-bottom: rem(80);
@@ -21,12 +46,38 @@
         color: $color40;
       }
     }
+    .section-contacts {
+      padding-top: rem(80);
+      padding-bottom: rem(80);
+    }
   }
 
   &.-conversion {
-    padding-top: rem(80);
-    padding-bottom: rem(80);
+    padding-top: rem(100);
+    padding-bottom: rem(100);
     background-color: $color30;
+    position: relative;
+    overflow: hidden;
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+    }
+    &:before {
+      background-image: url('../images/bubbles-blue.svg');
+      top: rem(50);
+      right: rem(-15);
+      width: rem(250);
+      height: rem(117);
+    }
+    &:after {
+      background-image: url('../images/border-double-arrow.svg');
+      background-position: center left;
+      bottom: rem(50);
+      left: -10%;
+      width: 100%;
+      height: rem(40);
+    }
     .section-heading {
       margin-bottom: rem(40);
       .title {
