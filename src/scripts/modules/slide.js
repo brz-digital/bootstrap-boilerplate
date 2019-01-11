@@ -1,7 +1,5 @@
 class Slide {
   constructor() {
-    console.log('>>> Slide constructor');
-
     const that = this;
 
     this.swiperInstances = {};

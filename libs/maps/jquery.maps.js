@@ -7,23 +7,25 @@
     var params = {};
 
     // Set params
-    params.api              = $el.data('api') || undefined;
+    params.api              = $el.data('api') || null;
     params.zoom             = $el.data('zoom') || 21;
     params.scroll           = $el.data('scroll') || false;
-    params.lat              = $el.data('lat') || undefined;
-    params.lng              = $el.data('lng') || undefined;
-    params.title            = $el.data('title') || undefined;
-    params.address          = $el.data('address') || undefined;
+    params.lat              = $el.data('lat') || null;
+    params.lng              = $el.data('lng') || null;
+    params.title            = $el.data('title') || null;
+    params.address          = $el.data('address') || null;
     params.image            = $el.data('image') || null;
-    params.marker           = $el.data('marker') || undefined;
-    params.defaultPosition  = $el.data('defaultPosition') || '-7.08968, -34.83879';
+    params.marker           = $el.data('marker') || null;
+    params.defaultPosition  = $el.data('defaultPosition') || '-7.097340, -34.833240';
 
     var defaultPosition = params.defaultPosition.split(',');
 
     var settings = $.extend({
       zoom: params.zoom,
-      zoomControl: false,
-      fullscreenControl: false,
+      zoomControlOptions: {
+        style: google.maps.ZoomControlStyle.SMALL,
+        position: google.maps.ControlPosition.TOP_RIGHT
+      },
       scaleControl: false,
       streetViewControl: false,
       scrollwheel: params.scroll,
@@ -37,10 +39,9 @@
     var markerInfo = {};
     var caption;
     var openCard = [];
-    var bounds  = new google.maps.LatLngBounds();
 
     // If not exists api endpoint
-    if(typeof params.api === 'undefined') {
+    if(params.api === null) {
       caption = normalizeData(params);
 
       // Set marker in map
@@ -57,7 +58,7 @@
     }
 
     function pushToMap(map, params, caption) {
-      if(typeof params.marker !== 'undefined') {
+      if(params.marker !== null) {
         markerInfo['icon'] = new google.maps.MarkerImage(
           params.marker,
           null,
@@ -76,11 +77,6 @@
 
       var marker = new google.maps.Marker(markerSettings);
 
-      bounds.extend(markerInfo['position']);
-
-      map.panToBounds(bounds);
-      //map.fitBounds(bounds);
-
       markerClick(marker, markerInfo['content']);
     }
 
@@ -90,21 +86,19 @@
       });
 
       google.maps.event.addListener(marker, 'click', function() {
-        if (typeof openCard[0] !== 'undefined')
+        if (openCard.length)
           openCard[0].close();
-          openCard.pop();
 
-          infoCard.open(map, marker);
-          openCard.push(infoCard);
-
-          map.panToBounds(bounds);
+        openCard.pop();
+        infoCard.open(map, marker);
+        openCard.push(infoCard);
       });
     }
 
     function setCard(data) {
       var card;
 
-      if(data.image !== null) {
+      if(data.image !== undefined) {
         card = '<div class="map-card -with-image"><div class="map-figure"><div class="map-image bg-cover" style="background-image: url('+ caption.image +')"></div>';
       } else {
         card = '<div class="map-card">';

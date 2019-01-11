@@ -1,10 +1,1 @@
 // Grid
-.container {
-  padding-left: rem(80);
-  padding-right: rem(80);
-
-  @media screen and (max-width: $screen-sm-max) {
-    padding-left: rem(40);
-    padding-right: rem(40);
-  }
-}

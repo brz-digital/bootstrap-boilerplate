@@ -1,36 +1,4 @@
 // Menu
 .menu {
-  text-align: right;
-  height: rem(120);
-  line-height: rem(120);
-  .item {
-    display: inline-block;
-    margin-right: rem(20);
-    &:last-of-type {
-      margin-right: 0;
-    }
-  }
-  .link {
-    color: $color29;
-    &.-default {
-      font-family: $likelySansFill;
-      &:before {
-        content: '»';
-      }
-    }
-    &.-social {
-      &:before {
-        vertical-align: middle;
-      }
-    }
-    &.-active,
-    &:hover {
-      color: $color10;
-    }
-  }
 
-  @media screen and (max-width: $screen-xs-max) {
-    height: rem(60);
-    line-height: rem(60);
-  }
 }

@@ -3,8 +3,6 @@ import swal from '../../../node_modules/sweetalert';
 
 class Send {
   constructor() {
-    console.log('>>> Send constructor');
-
     let buttons = document.getElementsByClassName('js-send-form');
 
     Array.from(buttons).forEach((button) => {
@@ -109,7 +107,7 @@ class Send {
     let data = error.data;
 
     for (let key in data) {
-      let input = form.querySelector('input[name="' + key + '"]');
+      let input = form.querySelector('.js-validate[name="' + key + '"]');
 
       let group = input.closest('.form-group');
           group.classList.add('-wrong');

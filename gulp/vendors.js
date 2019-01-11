@@ -6,15 +6,20 @@ gulp.task('vendors', () => {
     // Jquery
     `${cons.vendor}/jquery/dist/jquery.js`,
 
+    // Popper
+    `${cons.vendor}/popper.js/dist/umd/popper.min.js`,
+
     // Bootstrap
-    `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/transition.js`,
-    `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/alert.js`,
-    `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/button.js`,
-    `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js`,
-    `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/modal.js`,
-    `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/affix.js`,
-    `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js`,
-    `${cons.vendor}/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js`,
+    `${cons.vendor}/bootstrap/js/dist/util.js`,
+    `${cons.vendor}/bootstrap/js/dist/alert.js`,
+    `${cons.vendor}/bootstrap/js/dist/button.js`,
+    `${cons.vendor}/bootstrap/js/dist/collapse.js`,
+    `${cons.vendor}/bootstrap/js/dist/dropdown.js`,
+    `${cons.vendor}/bootstrap/js/dist/modal.js`,
+    `${cons.vendor}/bootstrap/js/dist/scrollspy.js`,
+    `${cons.vendor}/bootstrap/js/dist/tab.js`,
+    `${cons.vendor}/bootstrap/js/dist/toast.js`,
+    `${cons.vendor}/bootstrap/js/dist/tooltip.js`,
 
     // Jquery Mask
     `${cons.vendor}/jquery-mask-plugin/dist/jquery.mask.js`,
@@ -23,7 +28,7 @@ gulp.task('vendors', () => {
     `${cons.vendor}/swiper/dist/js/swiper.js`,
 
     // Maps
-    `${cons.lib}/jquery.maps.js`,
+    `${cons.libs}/maps/jquery.maps.js`
   ])
   .pipe(cons.$.newer(`${cons.tmp}/scripts`))
   .pipe(cons.$.sourcemaps.init())

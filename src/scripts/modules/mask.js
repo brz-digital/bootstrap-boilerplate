@@ -1,7 +1,5 @@
 class Mask {
   constructor() {
-    console.log('>>> Mask constructor');
-
     // Slug
     $('.js-mask-slug').keyup(function () {
       const input = $(this);

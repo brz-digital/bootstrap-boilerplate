@@ -1,15 +1,4 @@
 // Button
 .btn {
-  border-radius: 0;
-  text-transform: uppercase;
-  font-size: rem(14);
-  padding-left: rem(30);
-  padding-right: rem(30);
-  &.-default {
-    color: $color10;
-    background-color: $color40;
-    &:hover {
-      background-color: darken($color40, 10%);
-    }
-  }
+
 }

@@ -1,7 +1,6 @@
 /**
  * GoogleMap Module
  */
-
 class GoogleMap {
   constructor() {
     const script = document.createElement('script');
@@ -175,4 +174,3 @@ class GoogleMap {
 }
 
 export default GoogleMap;
-

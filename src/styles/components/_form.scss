@@ -1,22 +1,4 @@
 // Form
 .form {
 
-  .input,
-  .textarea {
-    font-size: rem(14);
-    border-color: transparent;
-    background-color: transparent;
-    box-shadow: none !important;
-    border-radius: 0;
-    border-bottom: rem(1) solid $color29;
-    padding-left: 0;
-    padding-right: 0;
-    text-transform: uppercase;
-  }
-
-  .textarea {
-    resize: none;
-    height: rem(138);
-  }
-
 }

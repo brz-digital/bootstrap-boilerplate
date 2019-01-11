@@ -4,8 +4,6 @@ import Send from './send';
 
 class Common {
   constructor() {
-    console.log('>>> Common constructor');
-
     // Instance imports
     new Slide();
     new Mask();

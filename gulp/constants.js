@@ -9,6 +9,6 @@ const dist = 'dist';
 const src = 'src';
 const tmp = '.tmp';
 const vendor = 'node_modules';
-const lib = 'libs';
+const libs = 'libs';
 
-export { $, reload, dist, src, tmp, vendor, lib };
+export { $, reload, dist, src, tmp, vendor, libs };
